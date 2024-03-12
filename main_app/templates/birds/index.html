@@ -4,11 +4,12 @@
 <h1>Bird List</h1>
 
 {% for cat in cats %}
+<a href="{% url 'detail' bird.id %}">
   <div class="card">
     <div class="card-content">
       <span class="card-title">{{ bird.name }}</span>
       <p>Breed: {{ bird.breed }}</p>
-      <p>Description: {{ bird.description }}</p>
+      <p>Description: {{ bird.description|linebreaks }}</p>
       {% if bird.age > 0 %}
         <p>Age: {{ bird.age }}</p>
       {% else %}
@@ -16,6 +17,7 @@
       {% endif %}
     </div>
   </div>
+  </a>
 {% endfor %}
 
 {% endblock %}
