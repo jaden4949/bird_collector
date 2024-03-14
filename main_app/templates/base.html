@@ -8,6 +8,7 @@
   <title>Cat Collector</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </head>
 <body>
   <header class="navbar-fixed">
@@ -22,6 +23,20 @@
           <li><a href="{% url 'index' %}">View All My Birds</a></li>
         </ul>
       </div>
+      <script>
+        const dateEl = document.getElementById('id_date');
+        M.Datepicker.init(dateEl, {
+          format: 'yyyy-mm-dd',
+          defaultDate: new Date(),
+          setDefaultDate: true,
+          autoClose: true
+        });
+      
+        // add additional JS to initialize select below
+        const selectEl = document.getElementById('id_meal');
+        M.FormSelect.init(selectEl);
+      </script>
+      {% endblock %}
     </nav>
   </header>
   <main class="container">
